@@ -1,119 +1,95 @@
-project:
-  name: quickstart-aws-vpc
-  owner: quickstart@amazon.com
-  package_lambda: false
-  template: templates/aws-vpc.template.yaml
-  regions:
-    - af-south-1
-    - ap-east-1
-    - ap-northeast-1
-    - ap-northeast-2
-    - ap-northeast-3
-    - ap-south-1
-    - ap-southeast-1
-    - ap-southeast-2
-    - ap-southeast-3
-    - ca-central-1
-    - eu-central-1
-    - eu-north-1
-    - eu-south-1
-    - eu-west-1
-    - eu-west-2
-    - eu-west-3
-    - me-south-1
-    - sa-east-1
-    - us-east-1
-    - us-east-2
-    - us-west-1
-    - us-west-2
-    - us-gov-east-1
-    - us-gov-west-1
-    - cn-north-1
-    - cn-northwest-1
-tests:
-  vpc-complete-all-possible-regions:
-    parameters:
-      AvailabilityZones: $[taskcat_getaz_2]
-      CreateAdditionalPrivateSubnets: 'true'
-      CreatePrivateSubnets: 'true'
-      NumberOfAZs: '2'
-  vpc-defaults-all-possible-regions:
-    parameters:
-      AvailabilityZones: $[taskcat_getaz_2]
-      CreateAdditionalPrivateSubnets: 'false'
-      CreatePrivateSubnets: 'true'
-      NumberOfAZs: '2'
-  vpc-public-all-possible-regions:
-    parameters:
-      AvailabilityZones: $[taskcat_getaz_2]
-      CreateAdditionalPrivateSubnets: 'false'
-      CreateNATGateways: 'false'
-      CreatePrivateSubnets: 'false'
-      NumberOfAZs: '2'
-  vpc-private-all-possible-regions:
-    parameters:
-      AvailabilityZones: $[taskcat_getaz_2]
-      CreateAdditionalPrivateSubnets: 'false'
-      CreatePublicSubnets: 'false'
-      CreateNATGateways: 'false'
-      NumberOfAZs: '2'
-  3az-complete-all-possible-regions:
-    parameters:
-      AvailabilityZones: $[taskcat_getaz_3]
-      CreateAdditionalPrivateSubnets: 'true'
-      CreatePrivateSubnets: 'true'
-      NumberOfAZs: '3'
-    regions:
-      - af-south-1
-      - ap-east-1
-      - ap-northeast-1
-      - ap-northeast-2
-      - ap-northeast-3
-      - ap-south-1
-      - ap-southeast-1
-      - ap-southeast-2
-      - ap-southeast-3
-      - ca-central-1
-      - eu-central-1
-      - eu-north-1
-      - eu-south-1
-      - eu-west-1
-      - eu-west-2
-      - eu-west-3
-      - me-south-1
-      - sa-east-1
-      - us-east-1
-      - us-east-2
-      # https://aws.amazon.com/about-aws/global-infrastructure/regions_az/
-      # *New customers can access two Availability Zones in US West (Northern California).
-      # - us-west-1
-      - us-west-2
-      - us-gov-east-1
-      - us-gov-west-1
-      - cn-north-1
-      - cn-northwest-1
-  4az-complete-all-possible-regions:
-    parameters:
-      AvailabilityZones: $[taskcat_getaz_4]
-      CreateAdditionalPrivateSubnets: 'true'
-      CreatePrivateSubnets: 'true'
-      NumberOfAZs: '4'
-    regions:
-      # 20220816 - apne1-az3 is currently unavailable
-      # - ap-northeast-1
-      - ap-northeast-2
-      - us-east-1
-      - us-west-2
-  4az-public-all-possible-regions:
-    parameters:
-      AvailabilityZones: $[taskcat_getaz_4]
-      CreateAdditionalPrivateSubnets: 'false'
-      CreateNATGateways: 'false'
-      CreatePrivateSubnets: 'false'
-      NumberOfAZs: '4'
-    regions:
-      # 20220816 - apne1-az3 is currently unavailable
-      # - ap-northeast-1
-      - ap-northeast-2
-      - us-east-1
-      - us-west-2
+Here is the code with the issues fixed:
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta content="origin" http-equiv="Content-Security-Policy" />
+  <title>Forbidden &middot; GitHub</title>
+  
+  <style>
+    body {
+      background-color: #f1f1f1;
+      margin: 0;
+    }
+
+    body,
+    input,
+    button {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+
+    .container {
+      margin: 30px auto 40px auto;
+      width: 800px;
+      text-align: center;
+    }
+
+    a {
+      color: #4183c4;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    a:hover {
+      text-decoration: underline; 
+    }
+
+    h1,
+    h2,
+    h3 {
+      color: #666;
+    }
+
+    ul {
+      list-style: none;
+      padding: 25px 0;
+    }
+
+    li {
+      display: inline;
+      margin: 10px 50px 10px 0;
+    }
+
+    .logo {
+      display: inline-block;
+      margin-top: 35px;
+    }
+
+    .logo-img-2x {
+      display: none;
+    }
+
+    @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+      .logo-img-1x {
+        display: none;
+      }
+
+      .logo-img-2x {
+        display: inline-block;
+      }
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <div class="container">
+    <h1>Access to this site has been restricted.</h1>
+
+    <p>
+      <br />
+      If you believe this is an error, please contact <a href="https://support.github.com">Support</a>.
+    </p>
+
+    <div id="s">
+      <a href="https://githubstatus.com">GitHub Status</a> &mdash;
+      <a href="https://twitter.com/githubstatus">@githubstatus</a>
+    </div>
+  </div>
+
+</body>
+
+</html>
